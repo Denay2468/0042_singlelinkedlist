@@ -130,36 +130,56 @@ int main(){
         cout << "Enter your choice: ";
         cin >> choice;
 
-        switch (choice) {
-            case 1:
-                list.addNode();
+        switch (choice)
+        {
+        case 1:
+        {
+            list.addNode();
+            break;
+        }
+        case 2:
+        {
+            if(list.listEmpty()) {
+                cout << "List is empty. No nodes to delete." << endl;
                 break;
-            case 2:
-                cout << "Enter NIM to delete: ";
-                cin >> NIM;
-                if (list.delNode(NIM)) {
-                    cout << "Node deleted successfully." << endl;
-                } else {
-                    cout << "Node not found." << endl;
-                }
+            }
+            cout << "Enter NIM to delete: ";
+            cin >> NIM;
+            if (list.delNode(NIM)) {
+                cout << "Node deleted successfully." << endl;
+            } else {
+                cout << "Node not found." << endl;
+            }
+
+        }
+        break;
+        case 3:
+        {
+            list.traverse();
+        }
+        break;
+        case 4:
+        {
+            if(list.listEmpty() == true) {
+                cout << "List is empty. No nodes to search." << endl;
                 break;
-            case 3:
-                cout << "Enter NIM to search: ";
-                cin >> NIM;
-                if (list.search(NIM)) {
-                    cout << "Node found." << endl;
-                } else {
-                    cout << "Node not found." << endl;
-                }
-                break;
-            case 4:
-                list.traverse();
-                break;
-            case 5:
-                cout << "Exiting..." << endl;
-                break;
-            default:
-                cout << "Invalid choice. Please try again." << endl;
+            }
+
+            Node *previous, *current;
+            cout << "Enter NIM to search: ";
+            cin >> NIM;
+            if (list.search(NIM, &previous, &current)) {
+                cout << "Node found: " << current->data << endl;
+            } else {
+                cout << "Node not found." << endl;
+            }
+        }
+        break;
+        case 5:
+            cout << "Exiting..." << endl;
+            break;
+        default:
+            cout << "Invalid choice. Please try again." << endl;
         }
     } while (choice != 5);
 
