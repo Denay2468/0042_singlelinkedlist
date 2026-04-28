@@ -88,4 +88,24 @@ class linklist{
         return true;
     }
 
+    void traverse()
+    {
+        if (listEmpty())
+        {
+            cout << "List is empty." << endl;
+        }
+        else
+        {
+            cout << "data in the list: ";
+            Node *current = START;
+            while (current != NULL)
+            {
+                cout << current->data << " ";
+                current = current->next;
+            }
+            cout << endl;
+        }
+
+    }
+
 };
