@@ -37,6 +37,18 @@ class linklist{
             START = newNode;
             return;
         }
+
+        Node *previous = START;
+        Node *current = START;
+
+        while ((current != NULL) && (NIM >= current->data)){
+            if (NIM == current->data){
+                cout << "Duplicate NIM. Node not added." << endl;
+                return;
+            }
+            previous = current;
+            current = current->next;
+        }
     }
 
 };
