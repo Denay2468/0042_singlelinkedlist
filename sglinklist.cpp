@@ -8,3 +8,14 @@ public:
     int data;
     Node *next;
 };
+
+class linklist{
+    Node *START;
+
+    public:
+    linklist()
+    {
+        START = NULL;
+    }
+
+};
