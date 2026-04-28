@@ -73,4 +73,19 @@ class linklist{
         return (*current != NULL);
     }
 
+    bool delNode(int NIM)
+    {
+        Node *previous, *current;
+        if (!search(NIM, &previous, &current))
+            return false;
+
+        if (current == START)
+            START = START->next;
+        else
+            previous->next = current->next;
+
+        delete current;
+        return true;
+    }
+
 };
