@@ -49,6 +49,14 @@ class linklist{
             previous = current;
             current = current->next;
         }
+
+        newNode->next = current;
+        previous->next = newNode;
+    }
+
+    bool listEmpty()
+    {
+        return START == NULL;
     }
 
 };
