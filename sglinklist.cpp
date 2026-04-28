@@ -59,4 +59,18 @@ class linklist{
         return START == NULL;
     }
 
+    bool search(int NIM, Node **previous, Node **current)
+    {
+        *previous = START;
+        *current = START;
+
+        while (*current != NULL && NIM != (*current)->data)
+        {
+            *previous = *current;
+            *current = (*current)->next;
+        }
+
+        return (*current != NULL);
+    }
+
 };
