@@ -73,6 +73,12 @@ class linklist{
         return (*current != NULL);
     }
 
+    bool search(int NIM)
+    {
+        Node *previous, *current;
+        return search(NIM, &previous, &current);
+    }
+
     bool delNode(int NIM)
     {
         Node *previous, *current;
@@ -109,3 +115,53 @@ class linklist{
     }
 
 };
+
+int main(){
+    linklist list;
+    int choice, NIM;
+
+    do {
+        cout << "Menu:" << endl;
+        cout << "1. Add Node" << endl;
+        cout << "2. Delete Node" << endl;
+        cout << "3. Search Node" << endl;
+        cout << "4. Traverse List" << endl;
+        cout << "5. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                list.addNode();
+                break;
+            case 2:
+                cout << "Enter NIM to delete: ";
+                cin >> NIM;
+                if (list.delNode(NIM)) {
+                    cout << "Node deleted successfully." << endl;
+                } else {
+                    cout << "Node not found." << endl;
+                }
+                break;
+            case 3:
+                cout << "Enter NIM to search: ";
+                cin >> NIM;
+                if (list.search(NIM)) {
+                    cout << "Node found." << endl;
+                } else {
+                    cout << "Node not found." << endl;
+                }
+                break;
+            case 4:
+                list.traverse();
+                break;
+            case 5:
+                cout << "Exiting..." << endl;
+                break;
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+        }
+    } while (choice != 5);
+
+    return 0;
+}
